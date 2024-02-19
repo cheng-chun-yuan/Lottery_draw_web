@@ -1,7 +1,7 @@
 
 ## Github website
-Contract Github : https://github.com/cheng-chun-yuan/Lottery-draw_Contract
-Web Github : https://github.com/cheng-chun-yuan/Lottery_draw_web
+- Contract Github : https://github.com/cheng-chun-yuan/Lottery-draw_Contract
+- Web Github : https://github.com/cheng-chun-yuan/Lottery_draw_web
 
 ## Contract
 - Lottery_draw Contract(Testnet):
