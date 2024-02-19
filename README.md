@@ -1,6 +1,9 @@
+
+## Github website
 Contract Github : https://github.com/cheng-chun-yuan/Lottery-draw_Contract
 Web Github : https://github.com/cheng-chun-yuan/Lottery_draw_web
 
+## Contract
 - Lottery_draw Contract(Testnet):
   - Avax_testnet:
     1. [MemeNFTFactory](https://testnet.snowtrace.io/address/0x0cba6a073f8d2cf62d2fd47e219cc33b85559d3b)
@@ -12,9 +15,7 @@ Empowering users to effortlessly create transparent and fair NFT lotteries with 
 Description
 Our product seamlessly combines the innovative approach of a Factory Contract for generating customizable ERC-404 based NFT lottery contracts with the VRFMain for distributing verifiable random variables, and integrates Uniswap for efficient token transfers within the ERC-404 ecosystem. This holistic solution enables users to not only create and participate in fair and transparent NFT lotteries but also to effortlessly swap tokens necessary for participation directly on the platform. Leveraging Uniswap's decentralized exchange technology within the ERC-404 framework ensures that users have immediate access to the tokens they need, enhancing liquidity and user experience. This integration streamlines the process of entering lotteries, making it more accessible and convenient, while maintaining the integrity and fairness of the lottery system through secure and transparent random number generation. Our platform thus stands as a comprehensive ecosystem that democratizes access to blockchain innovations, making NFT lotteries fairer, more liquid, and easier to participate in for everyone.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Getting Started
+## Github website
 
 ```bash
 copy .env.example to .env
@@ -27,3 +28,4 @@ pnpm migrate
 
 pnpm run dev
 ```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
