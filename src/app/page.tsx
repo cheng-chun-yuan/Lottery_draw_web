@@ -7,7 +7,6 @@ export default function Home() {
       <p className="text-2xl text-dark-blue">
         Please connect your wallet first for a better experience
       </p>
-      
     </main>
   );
 }

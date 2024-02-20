@@ -14,4 +14,3 @@ export type LotteryDto = {
   percentage: number[];
   link: string;
 };
-

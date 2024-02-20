@@ -1,5 +1,7 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+
 import Link from "next/link";
 
 import Paper from "@mui/material/Paper";
@@ -7,6 +9,23 @@ import Typography from "@mui/material/Typography";
 
 import { type LotteryDto } from "@/lib/types/db";
 
+// Assuming fetchData function remains the same
+async function fetchData(baseTokenURI: string, index: number) {
+  try {
+    const response = await fetch(
+      `${baseTokenURI}${index + 1}.json`.replace(/\s/g, ""),
+    );
+    if (!response.ok) {
+      // Handle response error
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const json = await response.json();
+    console.log(json);
+    return json;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+}
 export default function EventCard({
   name,
   symbol,
@@ -14,7 +33,32 @@ export default function EventCard({
   percentage,
   link,
 }: LotteryDto) {
-  const totalLink = link;
+  // State to store traits
+  const [traits, setTraits] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchTraits = async () => {
+      const traitsTemp = await Promise.all(
+        percentage.map(async (_, index) => {
+          try {
+            const json = await fetchData(baseTokenURI, index);
+            const image = json.image; // Adjust this according to the actual structure
+            const trait = json.attributes[0].value; // Adjust this according to the actual structure
+            return { trait, image };
+          } catch (error) {
+            console.error("Error fetching trait data: ", error);
+            return { trait: "", image: "" }; // Return a fallback or error value
+          }
+        }),
+      );
+      setTraits(traitsTemp.map((item) => item.trait));
+      setImages(traitsTemp.map((item) => item.image));
+    };
+
+    fetchTraits();
+  }, [baseTokenURI, percentage]);
+
   return (
     <div>
       <Paper className="w-50 p-5 hover:cursor-pointer">
@@ -23,26 +67,31 @@ export default function EventCard({
             {name}
           </Typography>
           <p className="pl-6 text-xl font-bold text-dark-blue">{symbol}</p>
-          {/* Display percentage array with links */}
+          {/* Display percentage array with links and traits */}
           <ul className="list-disc pl-8 ">
             {percentage.map((percent, index) => (
               <li key={index} className="text-lg">
                 {index === 0
                   ? `${percent}`
-                  : `${percent-percentage[index - 1]}`}
+                  : `${percent - percentage[index - 1]}`}
                 % -
                 <a
-                  href={`${baseTokenURI}${index + 1}.json`.replace(/\s/g, "")}
+                  href={images[index]?.replace(
+                    "ipfs://",
+                    "https://ipfs.io/ipfs/",
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-700"
                 >
-                  Teir {index + 1}
+                  Tier {index + 1} : {traits[index]}
                 </a>
               </li>
             ))}
-            <Link href={totalLink} >
-              <div className="text-blue-500 hover:text-blue-700">View Event</div>
+            <Link href={link}>
+              <div className="text-blue-500 hover:text-blue-700">
+                View Event
+              </div>
             </Link>
           </ul>
         </div>

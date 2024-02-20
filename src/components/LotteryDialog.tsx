@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import React from "react";
+
 import { DialogTitle } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -9,9 +10,10 @@ import DialogContent from "@mui/material/DialogContent";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import { useAccount } from "wagmi";
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
+
 import { MemeNFTFactoryABI } from "@/utils/abis/MemeNFTFactory";
 import { MEMENFT_FACTORY_ADDRESS } from "@/utils/addresses";
-import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 function LotteryDialog() {
   const [open, setOpen] = React.useState(false);
@@ -43,7 +45,7 @@ function LotteryDialog() {
       try {
         const parsedPercentage = JSON.parse(value);
         if (Array.isArray(parsedPercentage)) {
-          setLotteryData(prevData => ({
+          setLotteryData((prevData) => ({
             ...prevData,
             percentage: parsedPercentage.map(Number), // Ensure all elements are numbers
           }));
@@ -56,7 +58,7 @@ function LotteryDialog() {
       }
     } else {
       // Handle all other fields normally
-      setLotteryData(prevData => ({
+      setLotteryData((prevData) => ({
         ...prevData,
         [name]: value,
       }));
@@ -79,7 +81,7 @@ function LotteryDialog() {
       console.log(resultAddress);
       const url = `https://testnet.snowtrace.io/address/${resultAddress}/contract/43113/code`;
       console.log("Submitting lottery data:", url);
-      setLotteryData(prevData => ({
+      setLotteryData((prevData) => ({
         ...prevData,
         link: url,
       }));
@@ -108,7 +110,6 @@ function LotteryDialog() {
       console.error("Failed to create lottery:", error);
     }
   };
-
 
   return (
     <React.Fragment>

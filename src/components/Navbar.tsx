@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import LotteryDialog from "../components/LotteryDialog";
+
 import Image from "next/image";
 import Link from "next/link";
 
+import LotteryDialog from "../components/LotteryDialog";
 import { Navbar as MTNavbar } from "@material-tailwind/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
