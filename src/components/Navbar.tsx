@@ -27,7 +27,7 @@ export function Navbar() {
         placeholder={undefined}
       >
         <div className="container mx-auto flex items-center justify-between">
-          <Image src="/logo.png" alt="Lottery Logo" width={440} height={160} />
+          <Image src="/logo.png" alt="Lottery Logo" width={300} height={200} />
           <ul
             className={`ml-10 hidden items-center gap-6 lg:flex ${
               isScrolling ? "text-gray-900" : "text-black"

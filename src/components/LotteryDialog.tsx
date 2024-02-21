@@ -117,7 +117,7 @@ function LotteryDialog() {
         className="w-30 m-4 flex h-10 items-center justify-center rounded-2xl bg-dark-blue p-4 text-xl font-bold text-white"
         onClick={handleClickOpen}
       >
-        Create Lottery
+        New Lottery
       </button>
       <Dialog
         open={open}
