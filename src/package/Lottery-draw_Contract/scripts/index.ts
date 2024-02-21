@@ -1,1 +1,0 @@
-export { loadContract } from "./config";
