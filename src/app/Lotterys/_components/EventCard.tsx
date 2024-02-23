@@ -61,7 +61,7 @@ export default function EventCard({
 
   return (
     <div>
-      <Paper className="w-50 p-5 hover:cursor-pointer">
+      <Paper className="w-[95%] p-5 hover:cursor-pointer">
         <div className="flex flex-col items-center justify-center">
           <Typography className="break-all font-bold" variant="h4">
             {name}
@@ -88,12 +88,12 @@ export default function EventCard({
                 </a>
               </li>
             ))}
-            <Link href={link}>
+          </ul>
+          <Link href={link}>
               <div className="text-blue-500 hover:text-blue-700">
                 View Event
               </div>
             </Link>
-          </ul>
         </div>
       </Paper>
     </div>

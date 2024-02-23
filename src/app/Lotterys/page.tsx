@@ -25,7 +25,10 @@ function EventsPage() {
         <div className="flex flex-row justify-center">
           {dbEvents.map((e) => {
             return (
-              <div className="p-10" key={e.name}>
+              <div
+                key={e.name}
+                className="w-1/4 min-w-[150px] max-w-[300px] flex-none"
+              >
                 <EventCard
                   name={e.name}
                   symbol={e.symbol}
