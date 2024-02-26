@@ -1,6 +1,4 @@
 "use client";
-
-import { ThemeProvider } from "@material-tailwind/react";
 import { ParticleNetwork } from "@particle-network/auth";
 import { particleWallet } from "@particle-network/rainbowkit-ext";
 import {
@@ -90,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} coolMode>
-          <ThemeProvider>
+          <div>
             <div className="fixed left-0 right-0 top-0 z-50">
               {" "}
               {/* Adjust z-index as needed */}
@@ -101,7 +99,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {/* Adjust padding-top based on Navbar's height */}
               {children}
             </div>
-          </ThemeProvider>
+          </div>
         </RainbowKitProvider>
       </WagmiConfig>
     </QueryClientProvider>

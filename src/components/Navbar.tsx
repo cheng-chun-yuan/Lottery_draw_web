@@ -6,25 +6,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LotteryDialog from "../components/LotteryDialog";
-import { Navbar as MTNavbar } from "@material-tailwind/react";
+import { AppBar } from "@mui/material";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export function Navbar() {
   const [isScrolling] = useState(false);
 
   const navBarStyle =
-    "text-2xl p-4 hover:text-dark-blue hover:border-b-4 font-bold";
+    "text-2xl p-4 text-dark-blue hover:border-b-4 font-bold";
 
   // Render Navbar
   return (
-    <>
-      <MTNavbar
-        fullWidth
-        shadow={false}
-        blurred={false}
-        color={isScrolling ? "white" : "transparent"}
-        className="text-black fixed top-0 z-50 border-0 bg-opacity-80 backdrop-blur-xl"
-        placeholder={undefined}
+      <AppBar 
+        position="static"
+        className={`bg-white shadow-lg py-4 px-4 lg:px-12 text-gray-900`}
       >
         <div className="container mx-auto flex items-center justify-between">
           <Image src="/logo.png" alt="Lottery Logo" width={300} height={200} />
@@ -42,8 +37,7 @@ export function Navbar() {
             <ConnectButton />
           </div>
         </div>
-      </MTNavbar>
-    </>
+      </AppBar>
   );
 }
 

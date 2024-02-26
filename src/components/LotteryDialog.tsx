@@ -162,7 +162,7 @@ function LotteryDialog() {
             variant="standard"
             onChange={handleChange}
             required
-            placeholder="e.g. [10, 20, 30]"
+            placeholder="e.g. [10, 20, 30, 100] the last number should be 100"
             className="pb-2"
           />
           <InputLabel htmlFor="">Base Token URI:</InputLabel>
