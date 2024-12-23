@@ -7,7 +7,9 @@ export default function Home() {
       <p className="text-4xl font-bold text-dark-blue">
         Donot connect wallet or you will be hacked
       </p>
-      <img src="copy_dog.jpeg" alt="Description of the photo" className="w-full h-auto" />
+      <div className="border-4 border-gray-800 p-2 rounded-lg">
+        <img src="path/to/your/photo.jpg" alt="Description of the photo" className="w-[50]" />
+      </div>
       
     </main>
   );
